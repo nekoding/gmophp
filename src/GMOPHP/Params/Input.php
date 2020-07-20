@@ -497,6 +497,10 @@ class Input
     'token_type'  => array(
       'key' => 'TokenType',
       'max-length'  => 1
+    ),
+    'user_info'   => array(
+      'key' => 'UserInfo',
+      'allow' => array(1, 2)
     )
   );
 }
