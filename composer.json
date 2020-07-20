@@ -1,0 +1,23 @@
+{
+    "name": "nekoding/gmo-php",
+    "description": "GMO PG for PHP",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "enggar",
+            "email": "enggartivandi@outlook.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "GMOPHP\\": "src/GMOPHP"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GMOPHP\\": "tests/GMOPHP"
+        }
+    }
+}
