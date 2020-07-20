@@ -1,7 +1,7 @@
 #  Gmo payment gateway php library
 Library for easy access API GMOPG
 
-## Instalation
+## Installation
 ```
 composer require nekoding/gmo-php
 ```
