@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/nekoding/gmophp/badge)](https://www.codefactor.io/repository/github/nekoding/gmophp)
+
 #  Gmo payment gateway php library
 Library for easy access API GMOPG
 
