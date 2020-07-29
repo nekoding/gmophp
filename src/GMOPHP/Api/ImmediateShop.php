@@ -408,7 +408,9 @@ class ImmediateShop extends Init
    */
   public function toJson()
   {
-    parse_str($this->raw, $data);
+    $encodedResponse = mb_convert_encoding($this->raw, "UTF-8", array('EUC-JP', 'SHIFT-JIS', 'AUTO'));
+
+    parse_str($encodedResponse, $data);
     $result =  array_combine(array_map('lcfirst', array_keys($data)), $data);
     return json_encode($result);
   }
