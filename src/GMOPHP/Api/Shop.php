@@ -4944,4 +4944,6 @@ class Shop extends Init
 
     return $this->callApi('ganbInquiry', $data);
   }
+
+  
 }

@@ -113,6 +113,10 @@ class Endpoint
     'entryTranGANB'                 => 'EntryTranGANB.idPass',
     'execTranGANB'                  => 'ExecTranGANB.idPass',
     'ganbCancel'                    => 'CancelTranGANB.idPass',
-    'ganbInquiry'                   => 'InquiryTransferGANB.idPass'
+    'ganbInquiry'                   => 'InquiryTransferGANB.idPass',
+    'entryTranPaypay'               => 'EntryTranPaypay.idPass',
+    'execTranPaypay'                => 'ExecTranPaypay.idPass',
+    'paypaySales'                   => 'PaypaySales.idPass',
+    'paypayCancel'                  => 'PaypayCancelReturn.idPass',
   );
 }
