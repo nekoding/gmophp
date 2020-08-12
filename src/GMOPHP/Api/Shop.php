@@ -4945,5 +4945,184 @@ class Shop extends Init
     return $this->callApi('ganbInquiry', $data);
   }
 
-  
+  /**
+   * Entry Transaction PayPay
+   * 
+   * @Input
+   * Access id (取引ID)
+   * - AccessID string(32)
+   * 
+   * Access pass (取引パスワード)
+   * - AccessPass string(32)
+   * 
+   * Order id (オーダーID)
+   * - OrderID string(27)
+   * 
+   * JobCd (処理区分)
+   * - JobCd string(7)
+   * 
+   * AUTH : 仮売上、
+   * CAPTURE : 即時売上
+   * 
+   * Amount (利用金額)
+   * - Amount number(7)
+   * 
+   * Tax (税送料)
+   * - Tax number(7)
+   * 
+   * @Output
+   * 
+   * AccessID (取引ID)
+   * 
+   * AccessPass (取引パスワード)
+   * 
+   */
+  public function entryTranPaypay($order_id, $job_cd, $amount, $tax = 0)
+  {
+    $data = array(
+      'order_id'  => $order_id,
+      'amount'    => $amount,
+      'job_cd'    => $job_cd,
+      'tax'       => $tax
+    );
+
+    return $this->callApi('entryTranPaypay', $data);
+  }
+
+  /**
+   * Exec Transaction PayPay
+   * 
+   * Access id (取引ID)
+   * - AccessID string(32)
+   * 
+   * Access pass (取引パスワード)
+   * - AccessPass string(32)
+   * 
+   * Order id (オーダーID)
+   * - OrderID string(27)
+   * 
+   * Client field 1 (加盟店自由項目1)
+   * - ClientField1 string(100)
+   * 
+   * Client field 2 (加盟店自由項目2)
+   * - ClientField2 string(100)
+   * 
+   * Client field 3 (加盟店自由項目3)
+   * - ClientField3 string(100)
+   * 
+   * RetURL (決済結果戻しURL)
+   * - RetURL string(128)
+   * 
+   * PaymentTermSec (支払開始期限秒)
+   * - PaymentTermSec number(5)
+   * 
+   * @Output parameter
+   * 
+   * AccessID (取引ID)
+   * 
+   * Token (トークン)
+   * 
+   * StartURL (支払手続き開始IFのURL)
+   * 
+   * StartLimitDate (支払開始期限日時)
+   */
+  public function execTranPaypay($access_id, $access_pass, $order_id, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+
+    $data['access_id'] = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id'] = $order_id;
+
+    return $this->callApi('execTranPaypay', $data);
+  }
+
+  /**
+   * Cancel Transaction PayPay
+   * 
+   * @Input
+   * Access id (取引ID)
+   * - AccessID string(32)
+   * 
+   * Access pass (取引パスワード)
+   * - AccessPass string(32)
+   * 
+   * Order id (オーダーID)
+   * - OrderID string(27)
+   * 
+   * Cancel amount (利用金額)
+   * - CancelAmount number(7)
+   * 
+   * Cancel tax (税送料)
+   * - CancelTax number(7)
+   * 
+   * @Output
+   * 
+   * OrderID (オーダーID)
+   * 
+   * Status (現状態)
+   * value :
+   * CANCEL：キャンセル
+   * RETURN：返金
+   * 
+   * CancelAmount (キャンセル利用金額)
+   * 
+   * CancelTax (キャンセル税送料)
+   */
+  public function paypayCancel($access_id, $access_pass, $order_id, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+
+    $data['access_id'] = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']   = $order_id;
+
+    return $this->callApi('paypayCancel', $data);
+  }
+
+  /**
+   * Sales Transaction PayPay
+   * 
+   * @Input
+   * Access id (取引ID)
+   * - AccessID string(32)
+   * 
+   * Access pass (取引パスワード)
+   * - AccessPass string(32)
+   * 
+   * Order id (オーダーID)
+   * - OrderID string(27)
+   * 
+   * Amount (利用金額)
+   * - Amount number(7)
+   * 
+   * Tax (税送料)
+   * - Tax number(7)
+   * 
+   * @Output
+   * OrderID (オーダーID)
+   * 
+   * Status (現状態)
+   * SALES：実売上
+   * 
+   * Amount (利用金額)
+   * 
+   * Tax (税送料)
+   */
+  public function paypaySales($access_id, $access_pass, $order_id, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+
+    $data['access_id'] = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']   = $order_id;
+
+    return $this->callApi('paypaySales', $data);
+  }
 }
