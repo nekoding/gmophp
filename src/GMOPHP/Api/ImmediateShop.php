@@ -388,6 +388,30 @@ class ImmediateShop extends Init
   }
 
   /**
+   * Entry Exec Transaction using PayPay
+   */
+  public function payPay($orderId, $amount = 0, array $data)
+  {
+    $data['order_id'] = $orderId;
+    $data['amount'] = $amount;
+
+    $entry = $this->callApi('entryTranPaypay', $data);
+
+    $data['access_id'] = $entry['result']['access_id'] ?? null;
+    $data['access_pass'] = $entry['result']['access_pass'] ?? null;
+
+    $exec = $this->callApi('execTranPaypay', $data);
+
+    // Save array response
+    $this->response = array_merge($entry['result'], $exec['result']);
+
+    // Save raw response
+    $this->raw = $entry['response'] . '&' . $exec['response'];
+
+    return $this;
+  }
+
+  /**
    * Get Raw Response
    */
   public function rawString()
