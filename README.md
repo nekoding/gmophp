@@ -3,6 +3,10 @@
 #  Gmo payment gateway php library
 Library for easy access API GMOPG
 
+## Laravel Version
+Laravel version for this package is available
+[https://github.com/nekoding/gmo-payment-gateway](https://github.com/nekoding/gmo-payment-gateway)
+
 ## Installation
 ```
 composer require nekoding/gmo-php
